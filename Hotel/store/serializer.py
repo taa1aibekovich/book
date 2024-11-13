@@ -3,6 +3,10 @@ from .models import *
 from django.contrib.auth.models import User
 
 
+class ImageSerializer(serializers.Serializer):
+    image = serializers.ImageField()
+
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
@@ -27,6 +31,7 @@ class UserProProfileSerializer(serializers.ModelSerializer):
         fields = ['first_name', 'last_name']
 
 
+
 class HotelProSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hotel
@@ -39,6 +44,8 @@ class HotelPhotosSerializer(serializers.ModelSerializer):
     class Meta:
         model = HotelPhotos
         fields = ['hotel', 'image']
+
+
 
 
 class HotelSimplePhotosSerializer(serializers.ModelSerializer):
